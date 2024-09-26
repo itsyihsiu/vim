@@ -2,7 +2,10 @@
 
 call plug#begin()
 
-Plug 'preservim/nerdcommenter' " \c<Space> Toggle comments on the selected lines
+Plug 'preservim/nerdcommenter'
+    " \c<Space> Toggle comments on the selected lines
+    " \cc Comment
+    " \cu Uncomment
 Plug 'preservim/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'cocopon/iceberg.vim'
@@ -14,7 +17,6 @@ call plug#end()
 
 " NERDTree settings
 map <C-n> :NERDTreeToggle<CR>
-"autocmd VimEnter * NERDTree
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -34,6 +36,7 @@ set number
 
 " Syntax highlighting and ColorScheme
 silent! colorscheme iceberg
+set background=dark
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
 autocmd ColorScheme * highlight Folded ctermbg=NONE guibg=NONE
@@ -47,6 +50,9 @@ set expandtab
 set autoindent
 set smartindent
 
+" Enables automatic indentation based on the file type
+filetype indent on
+
 " Searching
 set hlsearch
 set incsearch
@@ -57,31 +63,8 @@ set smartcase
 set wrap
 set cursorline
 
-" Move the cursor to the last position when reopening a file
-if has("autocmd")
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
-endif
-
-
-
-
 " Disable compatibility mode
 set nocompatible
-
-" Enables automatic indentation based on the file type
-filetype indent on
-
-" Enable syntax highlighting
-
-
-" Use spaces for indentation (4 spaces)
-
-" Search case-insensitive by default
-
-" Search highlights matches as you type
 
 " Disable mouse interaction in normal mode
 set mouse=""
@@ -98,4 +81,12 @@ set textwidth=0
 " Shows a vertical ruler at the configured column (default at 80)
 set ruler
 
+" Move the cursor to the last position when reopening a file
+if has("autocmd")
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+endif
 
+inoremap jk <Esc>
