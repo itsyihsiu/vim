@@ -12,6 +12,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -49,6 +50,10 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
+
+" Set tab width for HTML, CSS, JavaScript, and Vue files
+autocmd FileType html,css,scss,javascript,vue setlocal shiftwidth=2 tabstop=2 expandtab
+
 
 " Enables automatic indentation based on the file type
 filetype indent on
@@ -90,3 +95,10 @@ if has("autocmd")
 endif
 
 inoremap jk <Esc>
+nnoremap zz :q<CR>
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
