@@ -13,11 +13,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'github/copilot.vim', {'branch': 'main'}
 
 call plug#end()
 
 " NERDTree settings
 map <C-n> :NERDTreeToggle<CR>
+:let g:NERDTreeWinSize=22
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
