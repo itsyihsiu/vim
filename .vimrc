@@ -13,7 +13,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'github/copilot.vim', {'branch': 'main'}
+Plug 'github/copilot.vim', {'branch': 'main'} ":Copilot setup
 
 call plug#end()
 
